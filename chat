@@ -1,0 +1,8 @@
+<script
+  src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js">
+</script>
+  <langflow-chat
+    window_title="IoT RAG V003"
+    flow_id="78827f16-1af7-4c31-92fc-45470f69b8c6"
+    host_url="http://localhost:7868">
+</langflow-chat>
