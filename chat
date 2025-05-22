@@ -1,8 +1,28 @@
-<script
-  src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js">
-</script>
-  <langflow-chat
-    window_title="IoT RAG V003"
-    flow_id="78827f16-1af7-4c31-92fc-45470f69b8c6"
-    host_url="http://localhost:7868">
-</langflow-chat>
+import requests
+url = "tauri://localhost/api/v1/run/78827f16-1af7-4c31-92fc-45470f69b8c6"  # The complete API endpoint URL for this flow
+
+# Request payload configuration
+payload = {
+    "input_value": "hello world!",  # The input value to be processed by the flow
+    "output_type": "chat",  # Specifies the expected output format
+    "input_type": "chat"  # Specifies the input format
+}
+
+# Request headers
+headers = {
+    "Content-Type": "application/json"
+}
+
+try:
+    # Send API request
+    response = requests.request("POST", url, json=payload, headers=headers)
+    response.raise_for_status()  # Raise exception for bad status codes
+
+    # Print response
+    print(response.text)
+
+except requests.exceptions.RequestException as e:
+    print(f"Error making API request: {e}")
+except ValueError as e:
+    print(f"Error parsing response: {e}")
+    
